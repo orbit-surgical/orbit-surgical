@@ -1,0 +1,19 @@
+[package]
+
+# Note: Semantic Versioning is used: https://semver.org/
+version = "0.1.0"
+
+# Description
+title =  "ORBIT-Surgical Assets"
+description="Extension containing configuration instances of different assets and sensors"
+readme  = "docs/README.md"
+repository = "https://github.com/orbit-surgical/orbit-surgical"
+category = "robotics"
+keywords = ["kit", "robotics", "assets", "orbit"]
+
+[dependencies]
+"omni.isaac.orbit" = {}
+
+# Main python module this extension provides.
+[[python.module]]
+name = "orbit.surgical.assets"
