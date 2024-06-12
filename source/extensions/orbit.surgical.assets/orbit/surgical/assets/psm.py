@@ -33,7 +33,7 @@ PSM_CFG = ArticulationCfg(
             max_depenetration_velocity=5.0,
         ),
         articulation_props=sim_utils.ArticulationRootPropertiesCfg(
-            enabled_self_collisions=False, solver_position_iteration_count=8, solver_velocity_iteration_count=0
+            enabled_self_collisions=False, solver_position_iteration_count=4, solver_velocity_iteration_count=0
         ),
         # collision_props=sim_utils.CollisionPropertiesCfg(contact_offset=0.005, rest_offset=0.0),
     ),
@@ -70,8 +70,8 @@ PSM_CFG = ArticulationCfg(
             joint_names_expr=["psm_tool_gripper.*"],
             effort_limit=0.1,
             velocity_limit=0.2,
-            stiffness=2e3,
-            damping=1e2,
+            stiffness=0.1,
+            damping=0.1,
         ),
     },
     soft_joint_pos_limit_factor=1.0,

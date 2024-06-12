@@ -36,10 +36,9 @@ class NeedleLiftEnvCfg(joint_pos_env_cfg.NeedleLiftEnvCfg):
                 "psm_tool_pitch_joint",
                 "psm_tool_yaw_joint",
             ],
-            body_name="psm_tool_yaw_link",
+            body_name="psm_tool_tip_link",
             controller=DifferentialIKControllerCfg(command_type="pose", use_relative_mode=True, ik_method="dls"),
             scale=0.5,
-            body_offset=DifferentialInverseKinematicsActionCfg.OffsetCfg(pos=(0.0, 0.009, 0.0)),
         )
 
 

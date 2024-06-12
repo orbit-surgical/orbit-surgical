@@ -219,6 +219,7 @@ class LiftEnvCfg(RLTaskEnvCfg):
         self.episode_length_s = 5.0
         # simulation settings
         self.sim.dt = 0.01  # 100Hz
+        self.viewer.eye = (0.25, 0.25, 0.2)
 
         self.sim.physx.bounce_threshold_velocity = 0.2
         self.sim.physx.bounce_threshold_velocity = 0.01

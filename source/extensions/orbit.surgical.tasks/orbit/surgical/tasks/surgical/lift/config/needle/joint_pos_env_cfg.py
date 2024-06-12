@@ -49,10 +49,10 @@ class NeedleLiftEnvCfg(LiftEnvCfg):
             asset_name="robot",
             joint_names=["psm_tool_gripper.*_joint"],
             open_command_expr={"psm_tool_gripper1_joint": -0.5, "psm_tool_gripper2_joint": 0.5},
-            close_command_expr={"psm_tool_gripper1_joint": -0.07, "psm_tool_gripper2_joint": 0.07},
+            close_command_expr={"psm_tool_gripper1_joint": -0.08, "psm_tool_gripper2_joint": 0.08},
         )
         # Set the body name for the end effector
-        self.commands.object_pose.body_name = "psm_tool_yaw_link"
+        self.commands.object_pose.body_name = "psm_tool_tip_link"
 
         # Set Suture Needle as object
         self.scene.object = RigidObjectCfg(
@@ -64,8 +64,8 @@ class NeedleLiftEnvCfg(LiftEnvCfg):
                 rigid_props=RigidBodyPropertiesCfg(
                     solver_position_iteration_count=16,
                     solver_velocity_iteration_count=16,
-                    max_angular_velocity=0.1,
-                    max_linear_velocity=0.1,
+                    max_angular_velocity=100,
+                    max_linear_velocity=100,
                     max_depenetration_velocity=1.0,
                     disable_gravity=False,
                 ),
@@ -77,14 +77,13 @@ class NeedleLiftEnvCfg(LiftEnvCfg):
         marker_cfg.markers["frame"].scale = (0.02, 0.02, 0.02)
         marker_cfg.prim_path = "/Visuals/FrameTransformer"
         self.scene.ee_frame = FrameTransformerCfg(
-            prim_path="{ENV_REGEX_NS}/Robot/psm_remote_center_link",
+            prim_path="{ENV_REGEX_NS}/Robot/psm_base_link",
             debug_vis=False,
             visualizer_cfg=marker_cfg,
             target_frames=[
                 FrameTransformerCfg.FrameCfg(
-                    prim_path="{ENV_REGEX_NS}/Robot/psm_tool_yaw_link",
+                    prim_path="{ENV_REGEX_NS}/Robot/psm_tool_tip_link",
                     name="end_effector",
-                    offset=OffsetCfg(pos=(0.0, 0.009, 0.0), rot=(0.7071068, -0.7071068, 0, 0)),
                 ),
             ],
         )
