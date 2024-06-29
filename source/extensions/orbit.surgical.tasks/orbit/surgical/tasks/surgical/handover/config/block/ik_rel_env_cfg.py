@@ -3,10 +3,10 @@
 #
 # SPDX-License-Identifier: BSD-3-Clause
 
-from omni.isaac.orbit.assets.articulation import ArticulationCfg
-from omni.isaac.orbit.controllers.differential_ik_cfg import DifferentialIKControllerCfg
-from omni.isaac.orbit.envs.mdp.actions.actions_cfg import DifferentialInverseKinematicsActionCfg
-from omni.isaac.orbit.utils import configclass
+from omni.isaac.lab.assets.articulation import ArticulationCfg
+from omni.isaac.lab.controllers.differential_ik_cfg import DifferentialIKControllerCfg
+from omni.isaac.lab.envs.mdp.actions.actions_cfg import DifferentialInverseKinematicsActionCfg
+from omni.isaac.lab.utils import configclass
 
 from . import joint_pos_env_cfg
 

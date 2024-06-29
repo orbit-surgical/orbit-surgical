@@ -9,7 +9,7 @@
 
 import argparse
 
-from omni.isaac.orbit.app import AppLauncher
+from omni.isaac.lab.app import AppLauncher
 
 # add argparse arguments
 parser = argparse.ArgumentParser(description="Collect demonstrations for Orbit environments.")
@@ -35,14 +35,14 @@ import gymnasium as gym
 import os
 import torch
 
-from omni.isaac.orbit.devices import Se3Keyboard, Se3SpaceMouse
-from omni.isaac.orbit.managers import TerminationTermCfg as DoneTerm
-from omni.isaac.orbit.utils.io import dump_pickle, dump_yaml
+from omni.isaac.lab.devices import Se3Keyboard, Se3SpaceMouse
+from omni.isaac.lab.managers import TerminationTermCfg as DoneTerm
+from omni.isaac.lab.utils.io import dump_pickle, dump_yaml
 
-import omni.isaac.orbit_tasks  # noqa: F401
-from omni.isaac.orbit_tasks.manipulation.lift import mdp
-from omni.isaac.orbit_tasks.utils.data_collector import RobomimicDataCollector
-from omni.isaac.orbit_tasks.utils.parse_cfg import parse_env_cfg
+import omni.isaac.lab_tasks  # noqa: F401
+from omni.isaac.lab_tasks.manipulation.lift import mdp
+from omni.isaac.lab_tasks.utils.data_collector import RobomimicDataCollector
+from omni.isaac.lab_tasks.utils.parse_cfg import parse_env_cfg
 
 import orbit.surgical.tasks  # noqa: F401
 

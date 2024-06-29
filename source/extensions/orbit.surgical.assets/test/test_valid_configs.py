@@ -8,7 +8,7 @@
 
 """Launch Isaac Sim Simulator first."""
 
-from omni.isaac.orbit.app import AppLauncher, run_tests
+from omni.isaac.lab.app import AppLauncher, run_tests
 
 # launch the simulator
 app_launcher = AppLauncher(headless=True)
@@ -21,9 +21,9 @@ import unittest
 
 import orbit.surgical.assets as orbit_assets  # noqa: F401
 
-from omni.isaac.orbit.assets import AssetBase, AssetBaseCfg
-from omni.isaac.orbit.sensors import SensorBase, SensorBaseCfg
-from omni.isaac.orbit.sim import build_simulation_context
+from omni.isaac.lab.assets import AssetBase, AssetBaseCfg
+from omni.isaac.lab.sensors import SensorBase, SensorBaseCfg
+from omni.isaac.lab.sim import build_simulation_context
 
 
 class TestValidEntitiesConfigs(unittest.TestCase):
