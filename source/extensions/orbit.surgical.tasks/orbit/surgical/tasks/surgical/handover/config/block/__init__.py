@@ -18,7 +18,7 @@ from . import agents, ik_abs_env_cfg, ik_rel_env_cfg, joint_pos_env_cfg
 
 gym.register(
     id="Isaac-Handover-Block-Dual-PSM-v0",
-    entry_point="omni.isaac.orbit.envs:RLTaskEnv",
+    entry_point="omni.isaac.lab.envs:RLTaskEnv",
     kwargs={
         "env_cfg_entry_point": joint_pos_env_cfg.BlockHandoverEnvCfg,
         "rsl_rl_cfg_entry_point": agents.rsl_rl_cfg.HandoverBlockPPORunnerCfg,
@@ -28,7 +28,7 @@ gym.register(
 
 gym.register(
     id="Isaac-Handover-Block-Dual-PSM-Play-v0",
-    entry_point="omni.isaac.orbit.envs:RLTaskEnv",
+    entry_point="omni.isaac.lab.envs:RLTaskEnv",
     kwargs={
         "env_cfg_entry_point": joint_pos_env_cfg.BlockHandoverEnvCfg_PLAY,
         "rsl_rl_cfg_entry_point": agents.rsl_rl_cfg.HandoverBlockPPORunnerCfg,
@@ -42,7 +42,7 @@ gym.register(
 
 gym.register(
     id="Isaac-Handover-Block-Dual-PSM-IK-Abs-v0",
-    entry_point="omni.isaac.orbit.envs:RLTaskEnv",
+    entry_point="omni.isaac.lab.envs:RLTaskEnv",
     kwargs={
         "env_cfg_entry_point": ik_abs_env_cfg.BlockHandoverEnvCfg,
         "rsl_rl_cfg_entry_point": agents.rsl_rl_cfg.HandoverBlockPPORunnerCfg,
@@ -52,7 +52,7 @@ gym.register(
 
 gym.register(
     id="Isaac-Handover-Block-Dual-PSM-IK-Abs-Play-v0",
-    entry_point="omni.isaac.orbit.envs:RLTaskEnv",
+    entry_point="omni.isaac.lab.envs:RLTaskEnv",
     kwargs={
         "env_cfg_entry_point": ik_abs_env_cfg.BlockHandoverEnvCfg_PLAY,
         "rsl_rl_cfg_entry_point": agents.rsl_rl_cfg.HandoverBlockPPORunnerCfg,
@@ -66,7 +66,7 @@ gym.register(
 
 gym.register(
     id="Isaac-Handover-Block-Dual-PSM-IK-Rel-v0",
-    entry_point="omni.isaac.orbit.envs:RLTaskEnv",
+    entry_point="omni.isaac.lab.envs:RLTaskEnv",
     kwargs={
         "env_cfg_entry_point": ik_rel_env_cfg.BlockHandoverEnvCfg,
         "rsl_rl_cfg_entry_point": agents.rsl_rl_cfg.HandoverBlockPPORunnerCfg,
@@ -76,7 +76,7 @@ gym.register(
 
 gym.register(
     id="Isaac-Handover-Block-Dual-PSM-IK-Rel-Play-v0",
-    entry_point="omni.isaac.orbit.envs:RLTaskEnv",
+    entry_point="omni.isaac.lab.envs:RLTaskEnv",
     kwargs={
         "env_cfg_entry_point": ik_rel_env_cfg.BlockHandoverEnvCfg_PLAY,
         "rsl_rl_cfg_entry_point": agents.rsl_rl_cfg.HandoverBlockPPORunnerCfg,

@@ -15,7 +15,7 @@ with `Isaac` in their name.
 
 """Launch Isaac Sim Simulator first."""
 
-from omni.isaac.orbit.app import AppLauncher
+from omni.isaac.lab.app import AppLauncher
 
 # launch omniverse app
 app_launcher = AppLauncher(headless=True)

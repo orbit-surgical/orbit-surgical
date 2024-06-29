@@ -1,3 +1,7 @@
+![ORBIT-Surgical](media/teaser.png)
+
+---
+
 # ORBIT-Surgical
 
 [![IsaacSim](https://img.shields.io/badge/IsaacSim-2023.1.1-silver.svg)](https://docs.omniverse.nvidia.com/isaacsim/latest/overview.html)
@@ -21,6 +25,11 @@ ORBIT-Surgical depends on Isaac Sim and ORBIT. For detailed instructions on how 
 
 - [Isaac Sim](https://docs.omniverse.nvidia.com/isaacsim/latest/index.html)
 - [Orbit](https://isaac-orbit.github.io/orbit/)
+
+Download and install the [Git Large File Storage (LFS)](https://git-lfs.com/). Once downloaded and installed, set up Git LFS for your user account by running:
+```bash
+git lfs install
+```
 
 #### Configuration
 
