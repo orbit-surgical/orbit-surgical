@@ -1,0 +1,9 @@
+# Ignore all other files
+.python.env
+*.json
+
+# Note: These files are kept for development purposes only.
+!tools/settings.template.json
+!tools/setup_vscode.py
+!extensions.json
+!tasks.json
