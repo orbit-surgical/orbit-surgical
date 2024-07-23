@@ -3,7 +3,6 @@
 #
 # SPDX-License-Identifier: BSD-3-Clause
 
-from omni.isaac.lab.assets.articulation import ArticulationCfg
 from omni.isaac.lab.controllers.differential_ik_cfg import DifferentialIKControllerCfg
 from omni.isaac.lab.envs.mdp.actions.actions_cfg import DifferentialInverseKinematicsActionCfg
 from omni.isaac.lab.utils import configclass
@@ -24,14 +23,12 @@ class BlockHandoverEnvCfg(joint_pos_env_cfg.BlockHandoverEnvCfg):
 
         # Set PSM as robot
         # We switch here to a stiffer PD controller for IK tracking to be better.
-        self.scene.robot_1 = PSM_HIGH_PD_CFG.replace(
-            prim_path="{ENV_REGEX_NS}/Robot_1",
-            init_state=ArticulationCfg.InitialStateCfg(pos=(0.2, 0.0, 0.15), rot=(1.0, 0.0, 0.0, 0.0)),
-        )
-        self.scene.robot_2 = PSM_HIGH_PD_CFG.replace(
-            prim_path="{ENV_REGEX_NS}/Robot_2",
-            init_state=ArticulationCfg.InitialStateCfg(pos=(-0.2, 0.0, 0.15), rot=(1.0, 0.0, 0.0, 0.0)),
-        )
+        self.scene.robot_1 = PSM_HIGH_PD_CFG.replace(prim_path="{ENV_REGEX_NS}/Robot_1")
+        self.scene.robot_1.init_state.pos = (0.2, 0.0, 0.15)
+        self.scene.robot_1.init_state.rot = (1.0, 0.0, 0.0, 0.0)
+        self.scene.robot_2 = PSM_HIGH_PD_CFG.replace(prim_path="{ENV_REGEX_NS}/Robot_2")
+        self.scene.robot_2.init_state.pos = (-0.2, 0.0, 0.15)
+        self.scene.robot_2.init_state.rot = (1.0, 0.0, 0.0, 0.0)
 
         # Set actions for the specific robot type (PSM)
         self.actions.body_1_joint_pos = DifferentialInverseKinematicsActionCfg(

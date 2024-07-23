@@ -9,7 +9,6 @@ import math
 
 import omni.isaac.lab.sim as sim_utils
 from omni.isaac.lab.assets import AssetBaseCfg
-from omni.isaac.lab.assets.articulation import ArticulationCfg
 from omni.isaac.lab.managers import EventTermCfg as EventTerm
 from omni.isaac.lab.managers import SceneEntityCfg
 from omni.isaac.lab.sensors import FrameTransformerCfg
@@ -49,14 +48,12 @@ class STARReachEnvCfg(ReachEnvCfg):
         )
 
         # switch robot to star
-        self.scene.robot_1 = STAR_CFG.replace(
-            prim_path="{ENV_REGEX_NS}/Robot_1",
-            init_state=ArticulationCfg.InitialStateCfg(pos=(0.0, 0.0, 0.0), rot=(1.0, 0.0, 0.0, 0.0)),
-        )
-        self.scene.robot_2 = STAR_CFG.replace(
-            prim_path="{ENV_REGEX_NS}/Robot_2",
-            init_state=ArticulationCfg.InitialStateCfg(pos=(0.8, 0.0, 0.0), rot=(1.0, 0.0, 0.0, 0.0)),
-        )
+        self.scene.robot_1 = STAR_CFG.replace(prim_path="{ENV_REGEX_NS}/Robot_1")
+        self.scene.robot_1.init_state.pos = (0.0, 0.0, 0.0)
+        self.scene.robot_1.init_state.rot = (1.0, 0.0, 0.0, 0.0)
+        self.scene.robot_2 = STAR_CFG.replace(prim_path="{ENV_REGEX_NS}/Robot_2")
+        self.scene.robot_2.init_state.pos = (0.8, 0.0, 0.0)
+        self.scene.robot_2.init_state.rot = (1.0, 0.0, 0.0, 0.0)
         # override rewards
         self.rewards.end_effector_1_position_tracking.params["asset_cfg"].body_names = ["endo360_needle"]
         self.rewards.end_effector_1_orientation_tracking.params["asset_cfg"].body_names = ["endo360_needle"]

@@ -3,7 +3,6 @@
 #
 # SPDX-License-Identifier: BSD-3-Clause
 
-from omni.isaac.lab.assets.articulation import ArticulationCfg
 from omni.isaac.lab.controllers.differential_ik_cfg import DifferentialIKControllerCfg
 from omni.isaac.lab.envs.mdp.actions.actions_cfg import DifferentialInverseKinematicsActionCfg
 from omni.isaac.lab.utils import configclass
@@ -24,14 +23,12 @@ class STARReachEnvCfg(joint_pos_env_cfg.STARReachEnvCfg):
 
         # Set STAR as robot
         # We switch here to a stiffer PD controller for IK tracking to be better.
-        self.scene.robot_1 = STAR_HIGH_PD_CFG.replace(
-            prim_path="{ENV_REGEX_NS}/Robot_1",
-            init_state=ArticulationCfg.InitialStateCfg(pos=(0.0, 0.0, 0.0), rot=(1.0, 0.0, 0.0, 0.0)),
-        )
-        self.scene.robot_2 = STAR_HIGH_PD_CFG.replace(
-            prim_path="{ENV_REGEX_NS}/Robot_2",
-            init_state=ArticulationCfg.InitialStateCfg(pos=(0.8, 0.0, 0.0), rot=(1.0, 0.0, 0.0, 0.0)),
-        )
+        self.scene.robot_1 = STAR_HIGH_PD_CFG.replace(prim_path="{ENV_REGEX_NS}/Robot_1")
+        self.scene.robot_1.init_state.pos = (0.0, 0.0, 0.0)
+        self.scene.robot_1.init_state.rot = (1.0, 0.0, 0.0, 0.0)
+        self.scene.robot_2 = STAR_HIGH_PD_CFG.replace(prim_path="{ENV_REGEX_NS}/Robot_2")
+        self.scene.robot_2.init_state.pos = (0.8, 0.0, 0.0)
+        self.scene.robot_2.init_state.rot = (1.0, 0.0, 0.0, 0.0)
         # Set actions for the specific robot type (STAR)
         self.actions.arm_1_action = DifferentialInverseKinematicsActionCfg(
             asset_name="robot_1",
