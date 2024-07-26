@@ -136,8 +136,7 @@ Keyboard Controller for SE(3): Se3Keyboard
 
 Using the teleoperation devices, it is also possible to collect data for learning from demonstrations (LfD). For this, we support the learning framework [Robomimic](https://robomimic.github.io/) and allow saving data in [HDF5](https://robomimic.github.io/docs/tutorials/dataset_contents.html#viewing-hdf5-dataset-structure) format.
 
-1. Collect demonstrations with teleoperation for the environment
-   `Isaac-Lift-Needle-PSM-IK-Rel-v0`:
+1. Collect demonstrations with teleoperation for the environment `Isaac-Lift-Needle-PSM-IK-Rel-v0`:
 
 ```bash
 # step a: collect data with keyboard
@@ -167,13 +166,22 @@ ${IsaacLab_PATH}/isaaclab.sh -p source/standalone/workflows/robomimic/play.py --
 
 ### Reinforcement Learning
 
-Training an agent on `Isaac-Reach-PSM-v0` with [RSL-RL](https://github.com/leggedrobotics/rsl_rl):
+Train an agent on `Isaac-Reach-PSM-v0` with [RSL-RL](https://github.com/leggedrobotics/rsl_rl):
 
 ```bash
 # run script for training
 ${IsaacLab_PATH}/isaaclab.sh -p source/standalone/workflows/rsl_rl/train.py --task Isaac-Reach-PSM-v0 --headless
 # run script for playing with 32 environments
-${IsaacLab_PATH}/isaaclab.sh -p source/standalone/workflows/rsl_rl/play.py --task Isaac-Reach-PSM-v0 --num_envs 32 --checkpoint /PATH/TO/model.pth
+${IsaacLab_PATH}/isaaclab.sh -p source/standalone/workflows/rsl_rl/play.py --task Isaac-Reach-PSM-v0 --num_envs 32 --load_run run_folder_name --checkpoint model.pt
+```
+
+### TensorBoard: TensorFlow's visualization toolkit
+
+Monitor the training progress stored in the `logs` directory on [Tensorboard](https://www.tensorflow.org/tensorboard):
+
+```bash
+# execute from the root directory of the repository
+${IsaacLab_PATH}/isaaclab.sh -p -m tensorboard.main --logdir=logs
 ```
 
 ## Pre-Commit
