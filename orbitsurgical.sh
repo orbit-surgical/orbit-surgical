@@ -5,5 +5,6 @@
 #
 # SPDX-License-Identifier: BSD-3-Clause
 
+${IsaacLab_PATH}/isaaclab.sh -p -m pip install -e source/extensions/orbit.surgical.ext
 ${IsaacLab_PATH}/isaaclab.sh -p -m pip install -e source/extensions/orbit.surgical.assets
 ${IsaacLab_PATH}/isaaclab.sh -p -m pip install -e source/extensions/orbit.surgical.tasks

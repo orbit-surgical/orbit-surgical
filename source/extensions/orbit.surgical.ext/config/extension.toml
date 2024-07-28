@@ -4,16 +4,19 @@
 version = "0.1.0"
 
 # Description
-title = "ORBIT-Surgical Environments"
-description="Extension containing suite of environments for robot learning."
+title = "ORBIT-Surgical"
+description="Extension providing additional modules to the Isaac Lab framework."
 readme  = "docs/README.md"
 repository = "https://github.com/orbit-surgical/orbit-surgical"
 category = "robotics"
 keywords = ["robotics", "rl", "il", "learning"]
 
 [dependencies]
-"orbit.surgical.ext" = {}
-"orbit.surgical.assets" = {}
+"omni.isaac.lab" = {}
+"omni.isaac.lab_assets" = {}
+"omni.isaac.core" = {}
+"omni.isaac.gym" = {}
+"omni.replicator.isaac" = {}
 
 [[python.module]]
-name = "orbit.surgical.tasks"
+name = "orbit.surgical.ext"
