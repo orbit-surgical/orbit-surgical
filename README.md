@@ -4,7 +4,7 @@
 
 # ORBIT-Surgical
 
-[![IsaacSim](https://img.shields.io/badge/IsaacSim-4.0.0-silver.svg)](https://docs.omniverse.nvidia.com/isaacsim/latest/overview.html)
+[![IsaacSim](https://img.shields.io/badge/IsaacSim-4.1.0-silver.svg)](https://docs.omniverse.nvidia.com/isaacsim/latest/overview.html)
 [![Isaac Lab](https://img.shields.io/badge/IsaacLab-1.0.0-silver)](https://isaac-sim.github.io/IsaacLab)
 [![Python](https://img.shields.io/badge/python-3.10-blue.svg)](https://docs.python.org/3/whatsnew/3.10.html)
 [![Linux platform](https://img.shields.io/badge/platform-linux--64-orange.svg)](https://releases.ubuntu.com/20.04/)
@@ -34,6 +34,13 @@ Define the following environment variable to specify the path to your Isaac Lab 
 ```bash
 # Set the IsaacLab_PATH environment variable to point to your Isaac Lab installation directory
 export IsaacLab_PATH=<your_IsaacLab_PATH>
+```
+
+Set up a symbolic link between the installed Isaac Sim root folder and `_isaac_sim` in the Isaac Lab directory.
+
+```bash
+# create a symbolic link
+ln -s ~/.local/share/ov/pkg/isaac-sim-4.1.0 ${IsaacLab_PATH}/_isaac_sim
 ```
 
 Although using a virtual environment is optional, we recommend using `conda` (detailed instructions [here](https://isaac-sim.github.io/IsaacLab/source/setup/installation/binaries_installation.html#setting-up-the-conda-environment-optional)).
