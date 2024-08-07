@@ -57,13 +57,13 @@ class NeedleLiftEnvCfg(LiftEnvCfg):
         # Set Suture Needle as object
         self.scene.object = RigidObjectCfg(
             prim_path="{ENV_REGEX_NS}/Object",
-            init_state=RigidObjectCfg.InitialStateCfg(pos=(0.0, 0.0, 0.05), rot=(1, 0, 0, 0)),
+            init_state=RigidObjectCfg.InitialStateCfg(pos=(0.0, 0.0, 0.015), rot=(1, 0, 0, 0)),
             spawn=UsdFileCfg(
                 usd_path=f"{ORBITSURGICAL_ASSETS_DATA_DIR}/Props/Surgical_needle/needle.usd",
                 scale=(0.4, 0.4, 0.4),
                 rigid_props=RigidBodyPropertiesCfg(
                     solver_position_iteration_count=16,
-                    solver_velocity_iteration_count=16,
+                    solver_velocity_iteration_count=4,
                     max_angular_velocity=100,
                     max_linear_velocity=100,
                     max_depenetration_velocity=1.0,
