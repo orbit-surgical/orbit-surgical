@@ -122,7 +122,7 @@ We provide interfaces for providing commands in SE(2) and SE(3) space for robot 
 To play inverse kinematics (IK) control with a keyboard device:
 
 ```bash
-${IsaacLab_PATH}/isaaclab.sh -p source/standalone/environments/teleoperation/teleop_se3_agent.py --task Isaac-Lift-Needle-PSM-IK-Rel-v0 --num_envs 1 --device keyboard
+${IsaacLab_PATH}/isaaclab.sh -p source/standalone/environments/teleoperation/teleop_se3_agent.py --task Isaac-Lift-Needle-PSM-IK-Rel-v0 --num_envs 1 --teleop_device keyboard
 ```
 
 The script prints the teleoperation events configured. For keyboard, these are as follows:
@@ -147,7 +147,7 @@ Using the teleoperation devices, it is also possible to collect data for learnin
 
 ```bash
 # step a: collect data with keyboard
-${IsaacLab_PATH}/isaaclab.sh -p source/standalone/workflows/robomimic/collect_demonstrations.py --task Isaac-Lift-Needle-PSM-IK-Rel-v0 --num_envs 1 --num_demos 10 --device keyboard
+${IsaacLab_PATH}/isaaclab.sh -p source/standalone/workflows/robomimic/collect_demonstrations.py --task Isaac-Lift-Needle-PSM-IK-Rel-v0 --num_envs 1 --num_demos 10 --teleop_device keyboard
 # step b: inspect the collected dataset
 ${IsaacLab_PATH}/isaaclab.sh -p source/standalone/workflows/robomimic/tools/inspect_demonstrations.py logs/robomimic/Isaac-Lift-Needle-PSM-IK-Rel-v0/hdf_dataset.hdf5
 ```
