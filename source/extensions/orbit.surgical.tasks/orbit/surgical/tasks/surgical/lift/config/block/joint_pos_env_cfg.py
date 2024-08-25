@@ -57,15 +57,15 @@ class BlockLiftEnvCfg(LiftEnvCfg):
         # Set Peg Block as object
         self.scene.object = RigidObjectCfg(
             prim_path="{ENV_REGEX_NS}/Object",
-            init_state=RigidObjectCfg.InitialStateCfg(pos=(0.0, 0.0, 0.1), rot=(1, 0, 0, 0)),
+            init_state=RigidObjectCfg.InitialStateCfg(pos=(0.0, 0.0, 0.025), rot=(1, 0, 0, 0)),
             spawn=UsdFileCfg(
                 usd_path=f"{ORBITSURGICAL_ASSETS_DATA_DIR}/Props/Surgical_block/block.usd",
                 scale=(0.011, 0.011, 0.011),
                 rigid_props=RigidBodyPropertiesCfg(
                     solver_position_iteration_count=16,
-                    solver_velocity_iteration_count=16,
-                    max_angular_velocity=0.1,
-                    max_linear_velocity=0.1,
+                    solver_velocity_iteration_count=8,
+                    max_angular_velocity=200,
+                    max_linear_velocity=200,
                     max_depenetration_velocity=1.0,
                     disable_gravity=False,
                 ),

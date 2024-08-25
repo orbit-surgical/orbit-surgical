@@ -37,7 +37,7 @@ class NeedleLiftEnvCfg(joint_pos_env_cfg.NeedleLiftEnvCfg):
                 "psm_tool_yaw_joint",
             ],
             body_name="psm_tool_tip_link",
-            controller=DifferentialIKControllerCfg(command_type="pose", use_relative_mode=False, ik_method="dls"),
+            controller=DifferentialIKControllerCfg(command_type="position", use_relative_mode=False, ik_method="dls"),
         )
 
 

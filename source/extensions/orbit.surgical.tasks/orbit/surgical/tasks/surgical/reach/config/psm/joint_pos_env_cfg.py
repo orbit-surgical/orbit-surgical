@@ -5,8 +5,6 @@
 
 from __future__ import annotations
 
-import math
-
 from orbit.surgical.assets import ORBITSURGICAL_ASSETS_DATA_DIR
 
 import omni.isaac.lab.sim as sim_utils
@@ -78,7 +76,7 @@ class PSMReachEnvCfg(ReachEnvCfg):
                 pos_x=(-0.07, 0.07),
                 pos_y=(-0.07, 0.07),
                 pos_z=(-0.12, -0.08),
-                roll=(math.pi, math.pi),
+                roll=(0.0, 0.0),
                 pitch=(0.0, 0.0),
                 yaw=(0.0, 0.0),
             ),

@@ -81,7 +81,7 @@ class PickSmWaitTime:
     REST = wp.constant(0.5)
     APPROACH_ABOVE_OBJECT = wp.constant(1.0)
     APPROACH_OBJECT = wp.constant(0.7)
-    GRASP_OBJECT = wp.constant(2.5)
+    GRASP_OBJECT = wp.constant(0.5)
     LIFT_OBJECT = wp.constant(2.0)
 
 
@@ -258,9 +258,6 @@ def main():
     # create action buffers (position + quaternion)
     actions = torch.zeros(env.unwrapped.action_space.shape, device=env.unwrapped.device)
     actions[:, 3] = 1.0
-    # desired object orientation (we only do position control of object)
-    desired_orientation = torch.zeros((env.unwrapped.num_envs, 4), device=env.unwrapped.device)
-    desired_orientation[:, 1] = 1.0
 
     # create state machine
     pick_sm = PickAndLiftSm(env_cfg.sim.dt * env_cfg.decimation, env.unwrapped.num_envs, env.unwrapped.device)
@@ -286,14 +283,15 @@ def main():
             object_position_b, _ = subtract_frame_transforms(
                 robot.data.root_state_w[:, :3], robot.data.root_state_w[:, 3:7], object_position
             )
+            object_orientation = object_data.root_quat_w
             # -- target object frame
-            desired_position = env.unwrapped.command_manager.get_command("object_pose")[..., :3]
+            desired_pose = env.unwrapped.command_manager.get_command("object_pose")
 
             # advance state machine
             actions = pick_sm.compute(
                 torch.cat([tcp_rest_position_b, tcp_rest_orientation], dim=-1),
-                torch.cat([object_position_b, desired_orientation], dim=-1),
-                torch.cat([desired_position, desired_orientation], dim=-1),
+                torch.cat([object_position_b, object_orientation], dim=-1),
+                desired_pose,
             )
 
             # reset state machine

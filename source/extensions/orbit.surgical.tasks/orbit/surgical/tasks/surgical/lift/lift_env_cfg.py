@@ -76,13 +76,13 @@ class CommandsCfg:
     object_pose = mdp.UniformPoseCommandCfg(
         asset_name="robot",
         body_name=MISSING,  # will be set by agent env cfg
-        resampling_time_range=(5.0, 5.0),
+        resampling_time_range=(1.0, 1.0),
         debug_vis=False,
         ranges=mdp.UniformPoseCommandCfg.Ranges(
             pos_x=(-0.05, 0.05),
             pos_y=(-0.05, 0.05),
-            pos_z=(-0.12, -0.08),
-            roll=(3.14, 3.14),
+            pos_z=(-0.12, -0.12),
+            roll=(0.0, 0.0),
             pitch=(0.0, 0.0),
             yaw=(0.0, 0.0),
         ),
@@ -130,7 +130,7 @@ class EventCfg:
         func=mdp.reset_root_state_uniform,
         mode="reset",
         params={
-            "pose_range": {"x": (-0.05, 0.05), "y": (-0.05, 0.05), "z": (0.0, 0.0)},
+            "pose_range": {"x": (-0.03, 0.03), "y": (-0.03, 0.03), "z": (0.0, 0.0)},
             "velocity_range": {},
             "asset_cfg": SceneEntityCfg("object", body_names="Object"),
         },
@@ -215,10 +215,10 @@ class LiftEnvCfg(ManagerBasedRLEnvCfg):
     def __post_init__(self):
         """Post initialization."""
         # general settings
-        self.decimation = 2
+        self.decimation = 4
         self.sim.render_interval = self.decimation
-        self.episode_length_s = 5.0
+        self.episode_length_s = 2.0
         # simulation settings
-        self.sim.dt = 0.01  # 100Hz
+        self.sim.dt = 1.0 / 200.0
         self.viewer.eye = (0.2, 0.2, 0.1)
         self.viewer.lookat = (0.0, 0.0, 0.04)

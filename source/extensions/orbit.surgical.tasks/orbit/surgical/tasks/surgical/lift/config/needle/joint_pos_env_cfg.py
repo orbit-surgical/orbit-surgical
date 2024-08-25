@@ -49,7 +49,7 @@ class NeedleLiftEnvCfg(LiftEnvCfg):
             asset_name="robot",
             joint_names=["psm_tool_gripper.*_joint"],
             open_command_expr={"psm_tool_gripper1_joint": -0.5, "psm_tool_gripper2_joint": 0.5},
-            close_command_expr={"psm_tool_gripper1_joint": -0.08, "psm_tool_gripper2_joint": 0.08},
+            close_command_expr={"psm_tool_gripper1_joint": -0.09, "psm_tool_gripper2_joint": 0.09},
         )
         # Set the body name for the end effector
         self.commands.object_pose.body_name = "psm_tool_tip_link"
@@ -59,13 +59,13 @@ class NeedleLiftEnvCfg(LiftEnvCfg):
             prim_path="{ENV_REGEX_NS}/Object",
             init_state=RigidObjectCfg.InitialStateCfg(pos=(0.0, 0.0, 0.015), rot=(1, 0, 0, 0)),
             spawn=UsdFileCfg(
-                usd_path=f"{ORBITSURGICAL_ASSETS_DATA_DIR}/Props/Surgical_needle/needle.usd",
+                usd_path=f"{ORBITSURGICAL_ASSETS_DATA_DIR}/Props/Surgical_needle/needle_sdf.usd",
                 scale=(0.4, 0.4, 0.4),
                 rigid_props=RigidBodyPropertiesCfg(
                     solver_position_iteration_count=16,
-                    solver_velocity_iteration_count=4,
-                    max_angular_velocity=100,
-                    max_linear_velocity=100,
+                    solver_velocity_iteration_count=8,
+                    max_angular_velocity=200,
+                    max_linear_velocity=200,
                     max_depenetration_velocity=1.0,
                     disable_gravity=False,
                 ),

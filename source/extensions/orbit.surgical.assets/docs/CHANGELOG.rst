@@ -1,6 +1,14 @@
 Changelog
 ---------
 
+0.1.1 (2024-08-24)
+~~~~~~~~~~~~~~~~~~
+
+Changed
+^^^^^
+
+* The end effector frame for the dVRK PSM is updated to align with a Z-up orientation.
+
 0.1.0 (2024-05-16)
 ~~~~~~~~~~~~~~~~~~
 

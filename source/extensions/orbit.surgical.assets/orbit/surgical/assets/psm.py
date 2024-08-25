@@ -26,7 +26,7 @@ from orbit.surgical.assets import ORBITSURGICAL_ASSETS_DATA_DIR
 
 PSM_CFG = ArticulationCfg(
     spawn=sim_utils.UsdFileCfg(
-        usd_path=f"{ORBITSURGICAL_ASSETS_DATA_DIR}/Robots/dVRK/PSM/psm.usd",
+        usd_path=f"{ORBITSURGICAL_ASSETS_DATA_DIR}/Robots/dVRK/PSM/psm_col.usd",
         activate_contact_sensors=False,
         rigid_props=sim_utils.RigidBodyPropertiesCfg(
             disable_gravity=False,
@@ -68,7 +68,7 @@ PSM_CFG = ArticulationCfg(
             joint_names_expr=["psm_tool_gripper.*"],
             effort_limit=0.1,
             velocity_limit=0.2,
-            stiffness=0.1,
+            stiffness=500,
             damping=0.1,
         ),
     },
