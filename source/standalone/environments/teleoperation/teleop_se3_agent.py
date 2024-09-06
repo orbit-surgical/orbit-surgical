@@ -104,15 +104,15 @@ def main():
     # create controller
     if args_cli.teleop_device.lower() == "keyboard" and "Dual" not in args_cli.task:
         teleop_interface = Se3Keyboard(
-            pos_sensitivity=0.005 * args_cli.sensitivity, rot_sensitivity=0.005 * args_cli.sensitivity
+            pos_sensitivity=0.005 * args_cli.sensitivity, rot_sensitivity=0.05 * args_cli.sensitivity
         )
     elif args_cli.teleop_device.lower() == "keyboard" and "Dual" in args_cli.task:
         teleop_interface = Se3KeyboardDualArm(
-            pos_sensitivity=0.005 * args_cli.sensitivity, rot_sensitivity=0.005 * args_cli.sensitivity
+            pos_sensitivity=0.005 * args_cli.sensitivity, rot_sensitivity=0.05 * args_cli.sensitivity
         )
     elif args_cli.teleop_device.lower() == "spacemouse":
         teleop_interface = Se3SpaceMouse(
-            pos_sensitivity=0.05 * args_cli.sensitivity, rot_sensitivity=0.005 * args_cli.sensitivity
+            pos_sensitivity=0.05 * args_cli.sensitivity, rot_sensitivity=0.05 * args_cli.sensitivity
         )
     elif args_cli.teleop_device.lower() == "gamepad":
         teleop_interface = Se3Gamepad(
