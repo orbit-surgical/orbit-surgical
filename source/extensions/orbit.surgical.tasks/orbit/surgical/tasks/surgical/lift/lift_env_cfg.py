@@ -87,6 +87,9 @@ class CommandsCfg:
             yaw=(0.0, 0.0),
         ),
     )
+    # set the scale of the visualization markers to (0.01, 0.01, 0.01)
+    object_pose.goal_pose_visualizer_cfg.markers["frame"].scale = (0.01, 0.01, 0.01)
+    object_pose.current_pose_visualizer_cfg.markers["frame"].scale = (0.01, 0.01, 0.01)
 
 
 @configclass

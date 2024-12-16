@@ -81,6 +81,9 @@ class PSMReachEnvCfg(ReachEnvCfg):
                 yaw=(0.0, 0.0),
             ),
         )
+        # set the scale of the visualization markers to (0.01, 0.01, 0.01)
+        self.commands.ee_pose.goal_pose_visualizer_cfg.markers["frame"].scale = (0.01, 0.01, 0.01)
+        self.commands.ee_pose.current_pose_visualizer_cfg.markers["frame"].scale = (0.01, 0.01, 0.01)
 
         self.events.reset_robot_joints = EventTerm(
             func=mdp.reset_joints_by_scale,
@@ -93,7 +96,7 @@ class PSMReachEnvCfg(ReachEnvCfg):
         
         # Listens to the required transforms
         marker_cfg = FRAME_MARKER_CFG.copy()
-        marker_cfg.markers["frame"].scale = (0.02, 0.02, 0.02)
+        marker_cfg.markers["frame"].scale = (0.01, 0.01, 0.01)
         marker_cfg.prim_path = "/Visuals/FrameTransformer"
         self.scene.ee_frame = FrameTransformerCfg(
             prim_path="{ENV_REGEX_NS}/Robot/psm_base_link",

@@ -89,6 +89,10 @@ class CommandsCfg:
             yaw=(0.0, 0.0),
         ),
     )
+    # set the scale of the visualization markers to (0.01, 0.01, 0.01)
+    ee_1_pose.goal_pose_visualizer_cfg.markers["frame"].scale = (0.01, 0.01, 0.01)
+    ee_1_pose.current_pose_visualizer_cfg.markers["frame"].scale = (0.01, 0.01, 0.01)
+
     ee_2_pose = mdp.UniformPoseCommandCfg(
         asset_name="robot_2",
         body_name=MISSING,  # will be set by agent env cfg
@@ -103,6 +107,9 @@ class CommandsCfg:
             yaw=(0.0, 0.0),
         ),
     )
+    # set the scale of the visualization markers to (0.01, 0.01, 0.01)
+    ee_2_pose.goal_pose_visualizer_cfg.markers["frame"].scale = (0.01, 0.01, 0.01)
+    ee_2_pose.current_pose_visualizer_cfg.markers["frame"].scale = (0.01, 0.01, 0.01)
 
 
 @configclass
